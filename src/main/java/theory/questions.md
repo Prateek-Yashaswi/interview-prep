@@ -257,11 +257,15 @@ If a method is declared as static, it is a member of a class rather than belongi
 called without creating an object of the class. A static method also has the power to access static data members of the
 class.
 
+---
+
 ### Can main() method be overloaded?
 
 Yes, we can overload the main() method in Java. A Java class can have any number of overloaded main() methods. But the
 very first thing JVM (Java Virtual Machine) seeks is the original main() method, i.e., public static void main(String[]
 args) to execute.
+
+---
 
 ### Can Abstract Classes and Interfaces have main() ?
 
@@ -275,4 +279,101 @@ of static, till Java 7
 Yes you can run a psvm in an interface, if you're working in Java 8. Because static methods are allowed in an interface
 starting from Java 8.
 
-# Serialisation
+# Serialization
+
+### What is Serialisation and Deserialization?
+
+Data **serialization** is the process of converting an object into a stream of bytes to more easily save or transmit it.
+
+Constructing a data structure or object from a series of bytes is **deserialization**.
+
+---
+
+### Use of transient keyword?
+
+The primary role of the transient keyword comes in cases of serialization. The transient modifier can be applied to
+field members of a class to turn off serialization on these specific members.
+
+---
+
+### Is it possible to serialise a class if its super class is not serializable ?Can the class be still serialised and deserialize?
+
+Yes provided that non-serializable super class has no args constructor which is involved at deserialization to
+initialise the super class.
+
+How it works ?
+
+**Serialization of the Serializable Subclass:**
+
+* When you serialize an instance of the subclass, only the fields declared in the subclass and the serializable parts of
+  the object graph are serialized.
+* The non-serializable superclass is not serialized, but its default (no-arg) constructor will be called during
+  deserialization to initialize the state inherited from the superclass.
+
+**Deserialization Process:**
+
+* During deserialization, the non-serializable superclass is reinitialized using its default constructor.
+* If the non-serializable superclass does not have a default constructor, deserialization will fail.
+
+# Cloning
+
+### What is marker interface?
+
+An interface that does not contain methods, fields, and constants is known as marker interface. The Serializable and
+Cloneable interfaces are the example of marker interface.
+
+By introducing annotations, Java provided us with an alternative to achieve the same results as the marker interfaces.
+Moreover, like marker interfaces, we can apply annotations to any class, and we can use them as indicators to perform
+certain actions.
+
+So what’s the key difference?
+
+Unlike annotations, interfaces allow us to take advantage of polymorphism. As a result, we can add additional
+restrictions to the marker interface.
+
+---
+
+### What is shallow copy and Deep copy?
+
+Shallow Copy stores the references of objects to the original memory address. And so, Shallow Copy reflects changes made
+to the new/copied object in the original object. Hence, A shallow copy is faster.
+
+Deep copy truly clones the underlying data. It is not shared between the first and therefore the copy. Therefore, Deep
+copy doesn’t reflect changes made to the new/copied object in the original object.
+
+# Exception
+
+### Errors vs Exceptions
+
+Errors indicate unrecoverable system issues beyond program control. In contrast, exceptions represent unexpected events
+within the program that can often be handled gracefully.
+
+---
+
+### Checked Vs Unchecked Exception
+
+Checked exceptions represent errors outside the control of the program. For example, the constructor of FileInputStream
+throws FileNotFoundException if the input file does not exist. Some common checked exceptions in Java are IOException,
+SQLException and ParseException. Java verifies checked exceptions at compile-time.
+
+If a program throws an unchecked exception, it reflects some error inside the program logic. For example, if we divide a
+number by 0, Java will throw ArithmeticException. Java does not verify unchecked exceptions at compile-time.
+
+---
+
+### Create Custom Exception
+
+[CreateCustomException](CreateCustomException.java)
+
+---
+
+### What is Runtime exception ?
+
+A runtime exception is an error that occurs while a program is running. Unlike compile-time errors, which are caught by
+the compiler before the program runs, runtime exceptions happen during the execution of the program. These exceptions
+typically arise due to unexpected conditions or incorrect usage of programming constructs, such as dividing by zero,
+accessing an array element out of bounds, or attempting to use a null reference.
+
+
+
+
