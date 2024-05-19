@@ -48,7 +48,7 @@ A Java String Pool is a place in heap memory where all the strings defined in th
 a new string object, JVM checks for the presence of the object in the String pool, If String is available in the pool,
 the same object reference is shared with the variable, else a new object is created.
 
-Usage: StringConstantPool.class
+[Check Usage](stringconstantpool/StringConstantPool.java)
 
 When a new keyword is used to create the strings, Java creates it in a separate memory location and hence when comparing
 s1 & s2 returns false.
@@ -62,7 +62,7 @@ returns true.
 
 ### Difference between equals and == operator?
 
-[Check Usage](/howinternworks/HowInternWorks.java)
+[Check Usage](stringconstantpool/StringConstantPool.java)
 
 The string equals() method compares two strings and returns true if all characters match in both strings, else returns
 false. The == operator compares the reference or memory location of objects in a heap, whether they point to the same
