@@ -527,3 +527,57 @@ while (iterator.hasNext()) {
 
 In this example, the modification (list.add("three")) occurs during iteration, causing a
 ConcurrentModificationException.
+
+---
+
+### Internal working of HashMap
+
+**Concepts**
+
+* Hash Function:
+    * A HashMap uses a hash function to compute an index (also called hash code) for each key.
+    * This index determines where the key-value pair will be stored in the internal array (called the table) of the
+      HashMap.
+* Buckets:
+    * The internal array of a HashMap consists of buckets.
+    * Each bucket can hold one or more key-value pairs.
+    * The index from the hash function maps to a specific bucket.
+* Nodes:
+    * Each element in the bucket is stored in a node.
+    * A node typically contains four fields: key, value, hash, and a reference to the next node (used for handling
+      collisions).
+* Handling Collisions:
+    * Collisions occur when multiple keys hash to the same index.
+    * HashMap handles collisions using a linked list or a balanced tree (since Java 8).
+    * When a bucket contains multiple nodes (due to collisions), these nodes are stored in a linked list.
+    * If the number of nodes in a bucket exceeds a certain threshold (TREEIFY_THRESHOLD, usually 8), the linked list is
+      converted to a balanced tree (usually a red-black tree) to improve performance.
+
+When a HashMap is created, an internal array (table) is initialized.
+
+**When a key-value pair is added using put(K key, V value):**
+
+* The hash function is applied to the key to compute the hash code.
+* The hash code is then used to determine the index in the table.
+* If the bucket at the computed index is empty, a new node is created and placed in that bucket.
+* If the bucket is not empty, a linear search is performed in the linked list (or tree) for the node with the same key.
+    * If a node with the same key is found, the value is updated.
+    * If no such node is found, a new node is added to the linked list (or tree).
+
+**When retrieving a value using get(Object key):**
+
+* The hash function is applied to the key to compute the hash code.
+* The hash code is used to find the index in the table.
+* The linked list (or tree) at the computed index is searched for the node with the given key.
+* If the node is found, its value is returned.
+* If no such node is found, null is returned.
+
+**When removing a key-value pair using remove(Object key):**
+
+* The hash function is applied to the key to compute the hash code.
+* The hash code is used to find the index in the table.
+* The linked list (or tree) at the computed index is searched for the node with the given key.
+* If the node is found, it is removed from the linked list (or tree).
+* The removed node's value is returned.
+
+[Representation of the internal working of a hashmap](https://miro.medium.com/v2/resize:fit:720/format:webp/0*8R3e49BbAuMEJhrx.jpg)
