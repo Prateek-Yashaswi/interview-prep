@@ -374,6 +374,59 @@ the compiler before the program runs, runtime exceptions happen during the execu
 typically arise due to unexpected conditions or incorrect usage of programming constructs, such as dividing by zero,
 accessing an array element out of bounds, or attempting to use a null reference.
 
+---
 
+### How does JVM handle Exception?
 
+The JVM is responsible for finding an exception handler to process the Exception object. It searches backward through
+the call stack until it finds a matching exception handler for that particular class of Exception object (in Java term,
+it is called " catch " the Exception ).
 
+When the JVM doesn't find a handler, it resorts to its default exception handling mechanism, which involves printing the
+exception information to the console and terminating the program. This behavior helps developers identify and diagnose
+runtime errors in their Java programs.
+
+---
+
+### Difference between Final, Finalise and Finally?
+
+[Javapoint Article](https://www.javatpoint.com/difference-between-final-finally-and-finalize)
+
+---
+
+### Super class of all exceptions?
+
+Throwable class
+
+[Exception Hierarchy In java](https://www.javamex.com/tutorials/exceptions/ExceptionHierarchy.png)
+
+---
+
+### When Finally block doesn’t get executed?
+
+The finally block may not execute if the JVM exits while the try or catch code is being executed.
+
+---
+
+### Can subclass throw higher checked exception than base class?
+
+Subclasses can throw fewer checked exceptions than their superclass, but not more.
+
+---
+
+### Can we throw an unchecked exception in child class if parent class doesn’t throw any exception?
+
+Yes, you can throw unchecked exceptions in a subclass even if the parent class does not declare any exceptions.
+Unchecked exceptions, such as those that subclass RuntimeException or Error, do not need to be declared in the method
+signature using the throws clause.
+
+When you override a method in a subclass, you are allowed to throw unchecked exceptions regardless of whether the
+superclass method declares any exceptions or not. This is because unchecked exceptions are not subject to the same rules
+as checked exceptions in Java.
+
+---
+
+### Difference between throw and throws()
+
+The Throw keyword is used inside a method. Whereas the Throws keyword is used in the method signature. The Throw keyword
+throws an exception explicitly. Whereas the Throws keyword declares that a method might throw an exception.
