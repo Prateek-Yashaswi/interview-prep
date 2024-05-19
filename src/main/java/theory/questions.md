@@ -166,7 +166,8 @@ Pass By Value - Java creates a copy of the variable being passed in the method a
   using interfaces.
 
 * **Encapsulation** - It refers to the bundling of data with the methods that operate on that data. Encapsulation is
-  used to hide the values or state of a structured data object inside a class, preventing unauthorized parties' direct access to
+  used to hide the values or state of a structured data object inside a class, preventing unauthorized parties' direct
+  access to
   them.
 
 * **Inheritance** - It is the mechanism in Java by which one class is allowed to inherit the features (fields and
@@ -174,7 +175,8 @@ Pass By Value - Java creates a copy of the variable being passed in the method a
   relationship.
 
 * **Polymorphism** - The ability of objects to take on many forms. In other words, it allows different objects to
-  respond to the same message or method call in multiple ways. Method Overloading & Method Overriding Are used to achieve this.
+  respond to the same message or method call in multiple ways. Method Overloading & Method Overriding Are used to
+  achieve this.
 
 **Method Overriding:** In Java, method overriding occurs when a subclass (child class) has the same method as the parent
 class. In other words, method overriding occurs when a subclass provides a particular implementation of a method
@@ -450,3 +452,78 @@ the object, freeing up memory in the heap.
 
 # Collections
 
+### Array vs ArrayList
+
+In Java, an ArrayList is used to represent a dynamic list. While Java arrays are fixed in size (the size cannot be
+modified), an ArrayList allows flexibility by being able to both add and remove elements.
+
+[Javapoint Article](https://www.javatpoint.com/difference-between-array-and-arraylist)
+
+### ArrayList vs LinkedList? When to use which collection?
+
+ArrayList is a resizable array implementation of the List interface. It provides a dynamic array that can grow as
+needed. Elements can be accessed directly by their index in constant time (O(1)), but adding or removing elements,
+particularly in the middle of the list, may require shifting elements and thus can take linear time (O(n)).
+
+LinkedList is a doubly-linked list implementation of the List and Deque interfaces. It consists of nodes where each node
+contains a reference to the previous and next node in the sequence. This structure allows for constant-time (O(1))
+insertions and deletions from the beginning or middle of the list but requires linear time (O(n)) for accessing elements
+by index.
+
+**Scenario Where ArrayList is Better than LinkedList**
+
+Use Case: Frequent Random Access
+
+Example: You have a list of student records, and you frequently need to access records by their index, such as
+displaying the record of the 1000th student.
+
+**Scenario Where LinkedList is Better than ArrayList**
+
+Use Case: Frequent Insertions/Deletions in the Middle of the List
+
+Example: You have a to-do list where tasks are frequently added or removed from various positions in the list (e.g.,
+inserting a high-priority task at the beginning or removing a completed task from the middle).
+
+---
+
+### Fail Safe vs Fail Fast Iterators?
+
+**Fail-fast** iterators immediately throw a ConcurrentModificationException if the underlying collection is modified (
+except
+through the iterator's own remove method) while iterating over it.
+
+Most of the Java Collections Framework classes like ArrayList, HashSet, HashMap, etc., provide fail-fast iterators.
+
+**Fail-safe** iterators do not throw any exceptions if the collection is modified during iteration. Instead, they work
+on a
+clone of the collection, meaning modifications to the collection will not be reflected in the iterator.
+
+Collections from the java.util.concurrent package, such as ConcurrentHashMap, CopyOnWriteArrayList, etc.
+
+
+---
+
+### Concurrent Modification Exception ?
+
+ConcurrentModificationException is thrown when a collection is structurally modified (modification that changes the size
+of the collection or affects its internal structure) while it is being iterated over, and this modification is not made
+through the iterator itself.
+
+```
+import java.util.ArrayList;
+import java.util.Iterator;
+
+ArrayList<String> list = new ArrayList<>();
+list.add("one");
+list.add("two");
+
+Iterator<String> iterator = list.iterator();
+while (iterator.hasNext()) {
+    System.out.println(iterator.next());
+    list.add("three");  // Modifying the collection directly
+}
+
+```
+
+In this example, the modification (list.add("three")) occurs during iteration, causing a
+ConcurrentModificationException.
