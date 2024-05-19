@@ -1,3 +1,5 @@
+# Strings
+
 ### Why are strings immutable in java?
 
 Immutable objects are objects which once declared elements can’t be modified after it.
@@ -77,6 +79,8 @@ synchronized whereas StringBuilder is not. That's why StringBuilder is faster th
 
 ---
 
+# Objects
+
 ### Why is wrapper class required?
 
 A wrapper class wraps (encloses) around a data type and gives it an object appearance. Wrapper classes are final and
@@ -143,3 +147,39 @@ false for the boolean type, \u0000 for the char type. For the wrapper classes, t
 Current Java language specification doesn’t allow usage of primitive types in the parametrized types (generics)
 
 [More details from here](https://www.baeldung.com/java-primitives-vs-objects)
+
+### Is Java pass by value or pass by reference?
+
+Pass By Value - Java creates a copy of the variable being passed in the method and then do the manipulations.
+
+[Example](javapassbyvalue/JavaPassByValue.java)
+
+# OOPS
+
+### Types of oops
+
+* **Abstraction** - Abstraction is the process of hiding the internal details of an application from the outer world.
+  Abstraction is used to describe things in simple terms. It’s used to create a boundary between the application and the
+  client programs. In Java, abstraction is achieved by interfaces and abstract classes. We can achieve 100% abstraction
+  using interfaces.
+
+* **Encapsulation** - It refers to the bundling of data with the methods that operate on that data. Encapsulation is
+  used to
+  hide the values or state of a structured data object inside a class, preventing unauthorized parties' direct access to
+  them.
+
+* **Inheritance** - It is the mechanism in Java by which one class is allowed to inherit the features (fields and
+  methods)
+  of another class. We are achieving inheritance by using extends keyword. Inheritance is also known as “is-a”
+  relationship.
+
+* **Polymorphism** - The ability of objects to take on many forms. In other words, it allows different objects to
+  respond to
+  the same message or method call in multiple ways. Method Overloading & Method Overriding Are used to achieve this.
+
+**Method Overriding:** In Java, method overriding occurs when a subclass (child class) has the same method as the parent
+class. In other words, method overriding occurs when a subclass provides a particular implementation of a method
+declared by one of its parent classes.
+
+**Method Overloading:** Method overloading in Java means having two or more methods (or functions) in a class with the same
+name and different arguments (or parameters).
