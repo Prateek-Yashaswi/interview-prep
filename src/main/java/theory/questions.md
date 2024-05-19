@@ -95,8 +95,8 @@ Feature:
   not primitive types.
 
 Boxing or AutoBoxing is the process of converting a primitive datatype into an object wrapper datatype, and unboxing is
-the process of
-converting a value from an object wrapper type back to the native primitive value.
+the process of converting a value from an object wrapper type back to the native primitive value.
+
 ---
 
 ### Methods of Object class?
@@ -166,26 +166,22 @@ Pass By Value - Java creates a copy of the variable being passed in the method a
   using interfaces.
 
 * **Encapsulation** - It refers to the bundling of data with the methods that operate on that data. Encapsulation is
-  used to
-  hide the values or state of a structured data object inside a class, preventing unauthorized parties' direct access to
+  used to hide the values or state of a structured data object inside a class, preventing unauthorized parties' direct access to
   them.
 
 * **Inheritance** - It is the mechanism in Java by which one class is allowed to inherit the features (fields and
-  methods)
-  of another class. We are achieving inheritance by using extends keyword. Inheritance is also known as “is-a”
+  methods) of another class. We are achieving inheritance by using extends keyword. Inheritance is also known as “is-a”
   relationship.
 
 * **Polymorphism** - The ability of objects to take on many forms. In other words, it allows different objects to
-  respond to
-  the same message or method call in multiple ways. Method Overloading & Method Overriding Are used to achieve this.
+  respond to the same message or method call in multiple ways. Method Overloading & Method Overriding Are used to achieve this.
 
 **Method Overriding:** In Java, method overriding occurs when a subclass (child class) has the same method as the parent
 class. In other words, method overriding occurs when a subclass provides a particular implementation of a method
 declared by one of its parent classes.
 
 **Method Overloading:** Method overloading in Java means having two or more methods (or functions) in a class with the
-same
-name and different arguments (or parameters).
+same name and different arguments (or parameters).
 ---
 
 ### Composition vs Aggregation vs Association?
@@ -200,8 +196,7 @@ be one-to-one, one-to-many, many-to-one, and many-to-many.
 
 **Aggregation** is a type of association between classes in which one class (the whole or container) contains a
 reference to another class (the part or component). Aggregation represents a “has-a” relationship, where one class
-contains objects
-of another class as part of its internal structure.
+contains objects of another class as part of its internal structure.
 
 [Details & Examples Here](https://www.geeksforgeeks.org/association-composition-aggregation-java/)
 
@@ -430,3 +425,28 @@ as checked exceptions in Java.
 
 The Throw keyword is used inside a method. Whereas the Throws keyword is used in the method signature. The Throw keyword
 throws an exception explicitly. Whereas the Throws keyword declares that a method might throw an exception.
+
+# Enums
+
+### Why to use Enum?
+
+You should use enum types any time you need to represent a fixed set of constants.
+
+Enums improve the readability of your code by providing meaningful names for constants. Instead of using arbitrary
+integers or strings to represent different states or options, you can use descriptive enum values. This makes your code
+easier to understand and maintain
+
+Type Safety: Enums provide type safety, meaning that the compiler can enforce the use of valid enum values at compile
+time. This helps catch errors early in the development process, reducing the likelihood of runtime errors related to
+incorrect constant values.
+
+# Garbage collection
+
+### How does Garbage collection in Java works?
+
+During the garbage collection process, the collector scans different parts of the heap, looking for objects that are no
+longer in use. If an object no longer has any references to it from elsewhere in the application, the collector removes
+the object, freeing up memory in the heap.
+
+# Collections
+
