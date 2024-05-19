@@ -581,3 +581,121 @@ When a HashMap is created, an internal array (table) is initialized.
 * The removed node's value is returned.
 
 [Representation of the internal working of a hashmap](https://miro.medium.com/v2/resize:fit:720/format:webp/0*8R3e49BbAuMEJhrx.jpg)
+
+---
+
+### Java8 changes to HashMap
+
+When buckets are getting too large, they're transformed into trees, instead of linked lists.
+
+---
+
+### Why HashMap contains null key?
+
+The designers of the HashMap class made a deliberate decision to allow null as a key. This provides flexibility for
+developers to use null keys where it makes sense for their application. Allowing null keys can be convenient in certain
+scenarios, such as:
+
+* Representing a default or unspecified value.
+* Simplifying code when handling optional values.
+
+The HashMap class treats the null key as a special case. When a null key is inserted, it always hashes to the index 0.
+The code explicitly checks for null before calculating the hash and handles it accordingly.
+
+---
+
+### Is it Mandatory to have key immutable in HashMap?
+
+It's not mandatory but, If the key is mutable and changed after being used as a key in the HashMap, the hash code can
+also change. As a result, we won't retrieve the value associated with the key correctly since it will be located in the
+wrong bucket. Hence, A Hashmap will work properly when the Key is made immutable.
+
+---
+
+### Why to override equals() and hashcode() method?
+
+The equals() method determines whether two objects are considered equal. By default, the equals() method in the Object
+class checks for reference equality (i.e., whether two references point to the same object in memory). To compare the
+contents of objects for logical equality, you need to override this method.
+
+The hashCode() method returns an integer hash code representing the object. It is used in hash-based collections to
+efficiently locate the bucket where an object should be stored. So, Override to ensure objects that are logically equal
+have the same hash code, facilitating correct behavior in hash-based collections.
+
+Consistency Between equals() and hashCode():
+
+* If two objects are equal according to the equals() method, they must have the same hash code.
+* This ensures that equal objects will end up in the same bucket in hash-based collections, allowing them to be found
+  and retrieved efficiently.
+
+Failing to override hashCode() when equals() is overridden can lead to unexpected behavior when using hash-based
+collections. For instance, you might not be able to retrieve an object from a HashMap even though it exists in the map,
+because the hashCode() and equals() methods are not consistent.
+
+---
+
+### HashSet vs LinkedHashSet vs TreeSet
+
+The HashSet, LinkedHashSet, and TreeSet are implementations of the Set interface in Java, each with its own
+characteristics and use cases.
+
+HashSet is a collection that implements the Set interface, backed by a HashMap. It does not guarantee any specific order
+of elements.
+
+LinkedHashSet is a subclass of HashSet that maintains a doubly-linked list across all elements. This linked list defines
+the iteration order, which is the order in which elements were inserted.
+
+TreeSet is a collection that implements the NavigableSet interface, backed by a TreeMap. It stores elements in a sorted
+order according to their natural ordering or by a specified comparator.
+
+---
+
+### What is the Internal Data structure in TreeMap? How the elements are sorted?
+
+The internal data structure of a TreeMap in Java is a Red-Black Tree, which is a type of self-balancing binary search
+tree that means a tree structure that maintains a height close to the minimum possible height for the number of nodes it
+contains.
+
+By default, TreeMap sorts its keys according to their natural ordering, which means the keys must implement the
+Comparable interface. The natural ordering is defined by the compareTo method of the Comparable interface.
+
+---
+
+### HashMap vs ConcurrentHashMap
+
+HashMap isn't thread-safe at all. Thus, it is non-synchronized in nature. The ConcurrentHashMap, on the other hand, is
+thread-safe.
+
+---
+
+### Comparable vs Comparator
+
+**Comparable**
+
+Defines natural ordering within the class itself. Used for inherent ordering of objects.
+
+* It is typically implemented by the class whose objects need to be sorted.
+* It has one method: compareTo(T obj), where T is the type of objects being compared.
+* This method returns a negative integer, zero, or a positive integer if the current object is less than, equal to, or
+  greater than the specified object, respectively.
+
+**Comparator**
+
+Defines custom comparison logic externally. Used for sorting based on different criteria or for defining multiple sorting orders.
+
+* Comparator is used to define custom comparison logic for classes whose source code you cannot modify or for defining
+  multiple sorting orders for a class.
+* It has one method: compare(T obj1, T obj2), where T is the type of objects being compared.
+* This method returns a negative integer, zero, or a positive integer if the first object is less than, equal to, or
+  greater than the second object, respectively.
+
+[Demo Here](comparableandcomparator)
+
+---
+
+### What is blocking Queue?
+
+---
+
+### What is Vector? When to use it?
+
