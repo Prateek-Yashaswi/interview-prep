@@ -681,7 +681,8 @@ Defines natural ordering within the class itself. Used for inherent ordering of 
 
 **Comparator**
 
-Defines custom comparison logic externally. Used for sorting based on different criteria or for defining multiple sorting orders.
+Defines custom comparison logic externally. Used for sorting based on different criteria or for defining multiple
+sorting orders.
 
 * Comparator is used to define custom comparison logic for classes whose source code you cannot modify or for defining
   multiple sorting orders for a class.
@@ -695,7 +696,39 @@ Defines custom comparison logic externally. Used for sorting based on different 
 
 ### What is blocking Queue?
 
+A blocking queue is a type of queue in which the enqueue (adding elements) and dequeue (removing elements) operations
+may block if certain conditions are not met. It is typically used in multithreaded programming scenarios where multiple
+threads are involved in producing and consuming data concurrently.
+
+Blocking queues are designed to be thread-safe, meaning they can be safely accessed by multiple threads concurrently
+without data corruption or race conditions.
+
 ---
 
-### What is Vector? When to use it?
+### What is Vector? When to use it? Compare it with arraylist.
 
+Vector and ArrayList in Java are similar in functionality, but they have some differences in their implementation and
+usage.
+
+**Similarities:**
+
+* Both Vector and ArrayList implement the List interface, which means they both provide an ordered collection of
+  elements with index-based access and support for operations such as adding, removing, and accessing elements by index.
+* Both Vector and ArrayList internally use arrays to store elements, and they both dynamically resize their internal
+  array when needed to accommodate additional elements.
+* Both support constant-time indexed access to elements, meaning you can access any element in the list directly by its
+  index.
+* Iterating over elements using iterators or enhanced for-loops is efficient in both Vector and ArrayList.
+
+**Differences**
+
+* Vector is thread-safe, meaning it supports concurrent access from multiple threads without additional synchronization.
+  All of its methods are synchronized, which ensures that only one thread can modify the vector at a time.
+* ArrayList is not inherently thread-safe. It does not synchronize its methods by default, so if multiple threads modify
+  an ArrayList concurrently, it can lead to data corruption or unexpected behavior. You need to use external
+  synchronization mechanisms if you require thread safety with ArrayList.
+
+Use ArrayList in single-threaded scenarios.
+
+Use Vector only if you require thread safety without additional synchronization overhead, such as in legacy code or when
+dealing with concurrent access from multiple threads.
