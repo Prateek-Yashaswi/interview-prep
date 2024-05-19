@@ -1,11 +1,12 @@
 package theory.comparableandcomparator;
 
-public record Employee(String name, int age) implements Comparable<Employee> {
+public record Employee(String name, int age, int salary) implements Comparable<Employee> {
     @Override
     public String toString() {
         return "Employee{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", salary=" + salary +
                 '}';
     }
 
