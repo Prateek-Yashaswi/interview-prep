@@ -62,7 +62,7 @@ returns true.
 
 ### Difference between equals and == operator?
 
-Usage: StringConstantPool.class
+[Check Usage](theory/howinternworks/HowInternWorks.java)
 
 The string equals() method compares two strings and returns true if all characters match in both strings, else returns
 false. The == operator compares the reference or memory location of objects in a heap, whether they point to the same
@@ -93,6 +93,7 @@ Feature:
 **NOTE:**
 Boxing is the process of converting a primitive datatype into an object wrapper datatype, and unboxing is the process of
 converting a value from an object wrapper type back to the native primitive value.
+---
 
 ### Methods of Object class?
 
@@ -119,3 +120,26 @@ Following are the methods present in the Object Class:
   waiting for a certain item.
 * **notifyAll()** - This function awakens all threads that are currently waiting for an object and sends notifications
   to all threads at the same time.
+
+---
+
+### Does java gives importance to primitive data types?
+
+Java has a two-fold type system consisting of primitives such as int, boolean and reference types such as Integer,
+Boolean. Every primitive type corresponds to a reference type.
+
+Every object contains a single value of the corresponding primitive type. The wrapper classes are immutable (so that
+their state can’t change once the object is constructed) and are final (so that we can’t inherit from them).
+
+Variables of primitive types live in the stack and hence are accessed **fast**. For the details, we recommend our
+tutorial
+on the Java memory model whereas, The reference types are objects, they live on the heap and are relatively slow to
+access.
+They have a certain overhead concerning their primitive counterparts.
+
+Default values of the primitive types are 0 (in the corresponding representation, i.e. 0, 0.0d etc) for numeric types,
+false for the boolean type, \u0000 for the char type. For the wrapper classes, the default value is null.
+
+Current Java language specification doesn’t allow usage of primitive types in the parametrized types (generics)
+
+[More details from here](https://www.baeldung.com/java-primitives-vs-objects)
