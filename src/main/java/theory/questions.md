@@ -25,10 +25,10 @@ These are some more reasons for making String immutable in Java. These are:
 
 ### How intern() works?
 
+[Check Usage](src/main/java/theory/howinternworks/HowInternWorks.java)
+
 The intern() method creates an exact copy of a string located in the heap memory and stores it in the string constant
 pool.
-
-Usage: HowInternWorks.class
 
 
 ---
