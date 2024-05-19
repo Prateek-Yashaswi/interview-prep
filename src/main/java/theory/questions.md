@@ -62,7 +62,7 @@ returns true.
 
 ### Difference between equals and == operator?
 
-[Check Usage](theory/howinternworks/HowInternWorks.java)
+[Check Usage](/howinternworks/HowInternWorks.java)
 
 The string equals() method compares two strings and returns true if all characters match in both strings, else returns
 false. The == operator compares the reference or memory location of objects in a heap, whether they point to the same
