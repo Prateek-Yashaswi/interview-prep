@@ -2,23 +2,31 @@
 
 Immutable objects are objects which once declared elements can’t be modified after it.
 
-A String in Java that is specified as immutable, as the content shared storage in a single pool to minimize creating a copy of the same value.
+A String in Java that is specified as immutable, as the content shared storage in a single pool to minimize creating a
+copy of the same value.
 
 These are some more reasons for making String immutable in Java. These are:
 
-* The String pool cannot be possible if String is not immutable in Java. A lot of heap space is saved by JRE. The same string variable can be referred to by more than one string variable in the pool. String interning can also not be possible if the String would not be immutable.
-* If we don’t make the String immutable, it will pose a serious security threat to the application. For example, database usernames, and passwords are passed as strings to receive database connections. The socket programming host and port descriptions are also passed as strings. The String is immutable, so its value cannot be changed. If the String doesn’t remain immutable, any hacker can cause a security issue in the application by changing the reference value.
-* The String is safe for multithreading because of its immutableness. Different threads can access a single “String instance”. It removes the synchronization for thread safety because we make strings thread-safe implicitly.
-* Immutability gives the security of loading the correct class by Classloader. For example, suppose we have an instance where we try to load java.sql.Connection class but the changes in the referenced value to the myhacked.The connection class does unwanted things to our database.
-
-
+* The String pool cannot be possible if String is not immutable in Java. A lot of heap space is saved by JRE. The same
+  string variable can be referred to by more than one string variable in the pool. String interning can also not be
+  possible if the String would not be immutable.
+* If we don’t make the String immutable, it will pose a serious security threat to the application. For example,
+  database usernames, and passwords are passed as strings to receive database connections. The socket programming host
+  and port descriptions are also passed as strings. The String is immutable, so its value cannot be changed. If the
+  String doesn’t remain immutable, any hacker can cause a security issue in the application by changing the reference
+  value.
+* The String is safe for multithreading because of its immutableness. Different threads can access a single “String
+  instance”. It removes the synchronization for thread safety because we make strings thread-safe implicitly.
+* Immutability gives the security of loading the correct class by Classloader. For example, suppose we have an instance
+  where we try to load java.sql.Connection class but the changes in the referenced value to the myhacked.The connection
+  class does unwanted things to our database.
 
 ---
 
 ### How intern() works?
 
-
-The intern() method creates an exact copy of a string located in the heap memory and stores it in the string constant pool.
+The intern() method creates an exact copy of a string located in the heap memory and stores it in the string constant
+pool.
 
 Usage: HowInternWorks.class
 
@@ -36,6 +44,78 @@ String s = new String("TEST") - 2 Objects
 
 ### How string constant pool works?
 
-A Java String Pool is a place in heap memory where all the strings defined in the program are stored. A separate place in a stack is there where the variable storing the string is stored. Whenever we create a new string object, JVM checks for the presence of the object in the String pool, If String is available in the pool, the same object reference is shared with the variable, else a new object is created.
+A Java String Pool is a place in heap memory where all the strings defined in the program are stored. Whenever we create
+a new string object, JVM checks for the presence of the object in the String pool, If String is available in the pool,
+the same object reference is shared with the variable, else a new object is created.
 
+Usage: StringConstantPool.class
 
+When a new keyword is used to create the strings, Java creates it in a separate memory location and hence when comparing
+s1 & s2 returns false.
+
+When we use a literal to create the strings, JVM checks if the string is already present in the String Constant Pool
+while creating s3. When it's not able to find it, it creates it in the pool. Now, when we initialized s4 with the same
+value, upon checking for it in the pool, it finds it (s3), and references s4 to s3. Hence, when we compare s3 to s4, it
+returns true.
+
+---
+
+### Difference between equals and == operator?
+
+Usage: StringConstantPool.class
+
+The string equals() method compares two strings and returns true if all characters match in both strings, else returns
+false. The == operator compares the reference or memory location of objects in a heap, whether they point to the same
+location or not.
+
+---
+
+### Difference between string, string buffer and string builder.
+
+String is immutable whereas StringBuffer and StringBuilder are mutable classes. StringBuffer is thread-safe and
+synchronized whereas StringBuilder is not. That's why StringBuilder is faster than StringBuffer.
+
+---
+
+### Why is wrapper class required?
+
+A wrapper class wraps (encloses) around a data type and gives it an object appearance. Wrapper classes are final and
+immutable.
+
+Feature:
+
+* Wrapper Classes provides additional features over the primitive data types when it comes to usage. These methods
+  include primarily methods like valueOf(), parseInt(), toString(), and many more.
+* An object is needed to support synchronization in multithreading.
+* Data structures in the Collection framework, such as ArrayList and Vector, store only objects (reference types) and
+  not primitive types.
+
+**NOTE:**
+Boxing is the process of converting a primitive datatype into an object wrapper datatype, and unboxing is the process of
+converting a value from an object wrapper type back to the native primitive value.
+
+### Methods of Object class?
+
+Following are the methods present in the Object Class:
+
+* **toString()** - This method obtains the object’s string representation, offering flexibility for customization.
+* **hashCode()** - A hash code is a numeric value generated by a specific method known as a hashing algorithm. In Java,
+  every object possesses a distinct and unique hash code. This code is derived by applying the algorithm to the internal
+  address of the object.
+* **equals()** - This method compares two objects and indicates whether they are equal or not.
+* **get()** - Java’s get() function, associated with objects, retrieves the value of a designated field represented by a
+  Field object.
+* **finalize()** - The garbage collector triggers the finalize() method when removing an object from memory,
+  specifically
+  when there are no remaining references to that object.
+* **clone()** - In a subclass that implements the Cloneable Interface, it is expected to override the clone() method of
+  the
+  Object class. This method is utilized for creating a clone, essentially a duplicate of the object along with its
+  member variable values, using the syntax obj.clone(). If a class fails to implement the Cloneable interface,
+  attempting this process results in a thrown CloneNotSupportedException.
+* **wait()** - By using this technique, the current thread is made to wait for a notification from another thread.
+  Within the function, you must provide the time in milliseconds for which the thread will remain in this waiting state.
+* **notify()** - By using this technique, notifications are sent to a single thread at a time, waking it up while it is
+  waiting for a certain item.
+* **notifyAll()** - This function awakens all threads that are currently waiting for an object and sends notifications
+  to all threads at the same time.
