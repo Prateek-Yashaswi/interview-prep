@@ -94,7 +94,8 @@ Feature:
 * Data structures in the Collection framework, such as ArrayList and Vector, store only objects (reference types) and
   not primitive types.
 
-Boxing or AutoBoxing is the process of converting a primitive datatype into an object wrapper datatype, and unboxing is the process of
+Boxing or AutoBoxing is the process of converting a primitive datatype into an object wrapper datatype, and unboxing is
+the process of
 converting a value from an object wrapper type back to the native primitive value.
 ---
 
@@ -153,6 +154,8 @@ Pass By Value - Java creates a copy of the variable being passed in the method a
 
 [Example](javapassbyvalue/JavaPassByValue.java)
 
+---
+
 # OOPS
 
 ### Types of oops
@@ -180,5 +183,96 @@ Pass By Value - Java creates a copy of the variable being passed in the method a
 class. In other words, method overriding occurs when a subclass provides a particular implementation of a method
 declared by one of its parent classes.
 
-**Method Overloading:** Method overloading in Java means having two or more methods (or functions) in a class with the same
+**Method Overloading:** Method overloading in Java means having two or more methods (or functions) in a class with the
+same
 name and different arguments (or parameters).
+---
+
+### Composition vs Aggregation vs Association?
+
+If an object contains the other object and the contained object cannot exist without the existence of that object, then
+it is called **composition**. It represents part-of relationship. In composition, both entities are dependent on each
+other.
+
+**Association** in Java is a connection or relation between two separate classes that are set up through their objects.
+Association relationship indicates how objects know each other and how they are using each other's functionality. It can
+be one-to-one, one-to-many, many-to-one, and many-to-many.
+
+**Aggregation** is a type of association between classes in which one class (the whole or container) contains a
+reference to another class (the part or component). Aggregation represents a “has-a” relationship, where one class
+contains objects
+of another class as part of its internal structure.
+
+[Details & Examples Here](https://www.geeksforgeeks.org/association-composition-aggregation-java/)
+
+---
+
+### Difference between Abstract class and Interface?
+
+**Abstract Class**
+
+An abstract class is a class that cannot be instantiated on its own and may contain both abstract methods (without a
+body) and concrete methods (with a body). Abstract classes are used to provide a common base class for other classes to
+extend from.
+
+Key Characteristics:
+
+* Abstract Methods: Can have abstract methods that must be implemented by subclasses.
+* Concrete Methods: Can have concrete methods with a body.
+* Fields: Can have fields (variables) and constructors.
+* Access Modifiers: Methods and fields can have different access modifiers (public, protected, private).
+* Single Inheritance: A class can extend only one abstract class.
+
+It is not mandatory to provide an access modifier to an abstract class. However, if you do not specify an access
+modifier, the default access level will be package-private (i.e., accessible only within the same package).
+
+**Interfaces**
+
+An interface is a reference type in Java, similar to a class, that can contain only constants, method signatures,
+default methods, static methods, and nested types. Interfaces cannot contain instance fields or constructors. Interfaces
+are used to define a contract that other classes must follow.
+
+Key Characteristics:
+
+* Abstract Methods: All methods are implicitly abstract (except default and static methods).
+* Default Methods: Can have default methods with a body.
+* Static Methods: Can have static methods with a body.
+* No Fields: Cannot have instance fields, but can have static final constants.
+* Multiple Inheritance: A class can implement multiple interfaces.
+
+By default, all the methods in an interface are public and abstract, and all the fields are public, static, and final
+
+[Demo](abstractclassesandinterfaces)
+
+---
+
+### Can private method or static methods be overridden in Java?
+
+No, we cannot override private or static methods in Java.
+
+Private methods in Java are not visible to any other class which limits their scope to the class in which they are
+declared.
+
+If a method is declared as static, it is a member of a class rather than belonging to the object of the class. It can be
+called without creating an object of the class. A static method also has the power to access static data members of the
+class.
+
+### Can main() method be overloaded?
+
+Yes, we can overload the main() method in Java. A Java class can have any number of overloaded main() methods. But the
+very first thing JVM (Java Virtual Machine) seeks is the original main() method, i.e., public static void main(String[]
+args) to execute.
+
+### Can Abstract Classes and Interfaces have main() ?
+
+Abstract Classes can have main()
+
+Interfaces has 2 answers :)
+
+No you cannot, because main has to be static in order to be used as an entry point, and Interfaces don't allow the use
+of static, till Java 7
+
+Yes you can run a psvm in an interface, if you're working in Java 8. Because static methods are allowed in an interface
+starting from Java 8.
+
+# Serialisation
