@@ -9,8 +9,9 @@ public class FindTheIndexOfTheFirstOccurrenceInAString {
     }
 
     private static int solve(String haystack, String needle) {
-        int n = needle.length();
+        if (haystack.length() < needle.length()) return -1;
 
+        int n = needle.length();
         for (int i = 0; i < haystack.length(); i++) {
             int charsLeft = haystack.length() - i;
 
