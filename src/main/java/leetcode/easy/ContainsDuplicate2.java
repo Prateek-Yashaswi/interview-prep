@@ -13,7 +13,7 @@ public class ContainsDuplicate2 {
 
     // Sliding window
     private static boolean solve(int[] nums, int k) {
-        Set<Integer> window = new HashSet<Integer>();
+        Set<Integer> window = new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
             // check if current index is greater than k, if true then on each iteration remove leftmost element from set
             if (i > k) window.remove(nums[i - k - 1]);
