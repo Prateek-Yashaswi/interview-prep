@@ -15,7 +15,7 @@ public class SecondLeastCharInAString {
 
         System.out.println(frequency);
 
-        var secondLeast = frequency.values().stream().distinct().sorted().toList().get(1);
+        var secondLeast = frequency.values().stream().distinct().sorted().skip(1).findAny().get();
 
         System.out.println("----- ANSWERS -----");
         frequency.entrySet().stream()
