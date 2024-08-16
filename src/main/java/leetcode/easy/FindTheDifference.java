@@ -25,7 +25,7 @@ public class FindTheDifference {
             }
         }
 
-        return m1.keySet().stream().findFirst().get();
+        return m1.keySet().iterator().next();
     }
 
     private static char solveFaster(String s, String t) {
