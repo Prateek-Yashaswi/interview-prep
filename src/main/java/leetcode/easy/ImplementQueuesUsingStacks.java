@@ -3,7 +3,7 @@ package leetcode.easy;
 import java.util.Stack;
 
 @SuppressWarnings("all")
-public class ImplementQueuesUsingStack {
+public class ImplementQueuesUsingStacks {
 
     private static class MyQueue {
         private Stack<Integer> stack;
