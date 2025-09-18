@@ -1,0 +1,1 @@
+Here anyone can have any number of subordinates and if a person doesn't have a subordinate, the list will be empty. We can easily implement and extend this code to support the concept of a lead engineer or a lead designer having developers and designers (respectively) working under a manager

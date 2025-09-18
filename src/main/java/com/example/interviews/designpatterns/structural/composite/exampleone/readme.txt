@@ -1,0 +1,1 @@
+Here only managers are allowed to have subordinates and each leaf can't have subordinates
