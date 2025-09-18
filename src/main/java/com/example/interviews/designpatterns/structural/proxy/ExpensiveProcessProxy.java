@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class ExpensiveProcessProxy implements ExpensiveProcess {
 
-    private static ExpensiveProcess expensiveProcess;
+    private ExpensiveProcess expensiveProcess;
 
     @Override
     public void process() {

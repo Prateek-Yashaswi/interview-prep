@@ -6,7 +6,6 @@ public class Main {
         expensiveProcess.process();
 
         System.out.println("\nTHIS SHOULD NOT RE-INITIALIZE THE PROCESS AND INSTEAD REUSE THE PREVIOUS ONE");
-        ExpensiveProcess expensiveProcess1 = new ExpensiveProcessProxy();
-        expensiveProcess1.process();
+        expensiveProcess.process();
     }
 }
