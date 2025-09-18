@@ -1,17 +1,22 @@
 package com.example.interviews.designpatterns.structural.composite;
 
-import com.example.interviews.designpatterns.structural.composite.departments.FinancialDepartment;
-import com.example.interviews.designpatterns.structural.composite.departments.SalesDepartment;
+import com.example.interviews.designpatterns.structural.composite.composites.Manager;
+import com.example.interviews.designpatterns.structural.composite.leaf.Designer;
+import com.example.interviews.designpatterns.structural.composite.leaf.Developer;
 
 public class Main {
+
     public static void main(String[] args) {
-        Department sales = new SalesDepartment(1, "Sales A");
-        Department financial = new FinancialDepartment(1, "Financial A");
 
-        HeadDepartment head = new HeadDepartment(1, "HEAD A");
-        head.addDepartment(sales);
-        head.addDepartment(financial);
+        var prateek = new Developer("Prateek", "Developer");
+        var yashaswi = new Designer("Yashaswi", "Designer");
 
-        head.printDepartment();
+        var py = new Manager("PY", "Manager");
+        py.addEmployee(prateek);
+        py.addEmployee(yashaswi);
+
+        prateek.showDetails();
+        yashaswi.showDetails();
+        py.showDetails();
     }
 }
