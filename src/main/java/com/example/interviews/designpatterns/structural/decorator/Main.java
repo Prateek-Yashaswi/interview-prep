@@ -1,25 +1,23 @@
 package com.example.interviews.designpatterns.structural.decorator;
 
-import com.example.interviews.designpatterns.structural.decorator.christmastree.ChristmasTree;
-import com.example.interviews.designpatterns.structural.decorator.christmastree.ChristmasTreeImpl;
-import com.example.interviews.designpatterns.structural.decorator.items.BubbleLights;
-import com.example.interviews.designpatterns.structural.decorator.items.Candies;
+
+import com.example.interviews.designpatterns.structural.decorator.decorators.MilkDecorator;
+import com.example.interviews.designpatterns.structural.decorator.decorators.SugarDecorator;
 
 public class Main {
+
     public static void main(String[] args) {
-        ChristmasTree christmasTree = new ChristmasTreeImpl();
-        var treeDecorator = new TreeDecorator(christmasTree);
 
-        System.out.println(treeDecorator.decorate());
+        Coffee coffee = new SimpleCoffee();
 
-        ChristmasTree christmasTree1 = new ChristmasTreeImpl();
-        var treeDecorator1 = new TreeDecorator(new BubbleLights(christmasTree1));
+        System.out.println(coffee.getDescription() + " " + coffee.getPrice());
 
-        System.out.println(treeDecorator1.decorate());
+        System.out.println("Adding Sugar");
+        coffee = new SugarDecorator(coffee);
+        System.out.println(coffee.getDescription() + " " + coffee.getPrice());
 
-        ChristmasTree christmasTree2 = new ChristmasTreeImpl();
-        var treeDecorator2 = new TreeDecorator(new BubbleLights(new Candies(christmasTree2)));
-
-        System.out.println(treeDecorator2.decorate());
+        System.out.println("Adding Milk");
+        coffee = new MilkDecorator(coffee);
+        System.out.println(coffee.getDescription() + " " + coffee.getPrice());
     }
 }
