@@ -1,6 +1,6 @@
-package com.example.interviews.designpatterns.structural.composite.leaf;
+package com.example.interviews.designpatterns.structural.composite.exampleone.leaf;
 
-import com.example.interviews.designpatterns.structural.composite.Employee;
+import com.example.interviews.designpatterns.structural.composite.exampleone.Employee;
 
 public class Designer implements Employee {
 

@@ -1,8 +1,8 @@
-package com.example.interviews.designpatterns.structural.composite;
+package com.example.interviews.designpatterns.structural.composite.exampleone;
 
-import com.example.interviews.designpatterns.structural.composite.composites.Manager;
-import com.example.interviews.designpatterns.structural.composite.leaf.Designer;
-import com.example.interviews.designpatterns.structural.composite.leaf.Developer;
+import com.example.interviews.designpatterns.structural.composite.exampleone.composites.Manager;
+import com.example.interviews.designpatterns.structural.composite.exampleone.leaf.Designer;
+import com.example.interviews.designpatterns.structural.composite.exampleone.leaf.Developer;
 
 public class Main {
 

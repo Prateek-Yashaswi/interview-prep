@@ -1,6 +1,6 @@
-package com.example.interviews.designpatterns.structural.composite.composites;
+package com.example.interviews.designpatterns.structural.composite.exampleone.composites;
 
-import com.example.interviews.designpatterns.structural.composite.Employee;
+import com.example.interviews.designpatterns.structural.composite.exampleone.Employee;
 
 import java.util.ArrayList;
 import java.util.List;
