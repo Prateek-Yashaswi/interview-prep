@@ -1,8 +1,9 @@
 package com.example.interviews.designpatterns.creational.abstractfactory.factories;
 
-import designpatterns.abstractfactory.Furniture;
-import designpatterns.abstractfactory.furnitures.RetroChair;
-import designpatterns.abstractfactory.furnitures.RetroSofa;
+
+import com.example.interviews.designpatterns.creational.abstractfactory.Furniture;
+import com.example.interviews.designpatterns.creational.abstractfactory.furnitures.RetroChair;
+import com.example.interviews.designpatterns.creational.abstractfactory.furnitures.RetroSofa;
 
 public class RetroFurnitureFactory implements FurnitureFactory {
 

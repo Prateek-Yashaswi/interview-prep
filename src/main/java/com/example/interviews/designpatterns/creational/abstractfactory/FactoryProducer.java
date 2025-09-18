@@ -1,8 +1,9 @@
 package com.example.interviews.designpatterns.creational.abstractfactory;
 
-import designpatterns.abstractfactory.factories.FurnitureFactory;
-import designpatterns.abstractfactory.factories.ModernFurnitureFactory;
-import designpatterns.abstractfactory.factories.RetroFurnitureFactory;
+
+import com.example.interviews.designpatterns.creational.abstractfactory.factories.FurnitureFactory;
+import com.example.interviews.designpatterns.creational.abstractfactory.factories.ModernFurnitureFactory;
+import com.example.interviews.designpatterns.creational.abstractfactory.factories.RetroFurnitureFactory;
 
 public class FactoryProducer {
 

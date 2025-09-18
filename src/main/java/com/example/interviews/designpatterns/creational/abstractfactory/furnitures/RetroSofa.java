@@ -1,6 +1,6 @@
 package com.example.interviews.designpatterns.creational.abstractfactory.furnitures;
 
-import designpatterns.abstractfactory.Furniture;
+import com.example.interviews.designpatterns.creational.abstractfactory.Furniture;
 
 public class RetroSofa implements Furniture {
 

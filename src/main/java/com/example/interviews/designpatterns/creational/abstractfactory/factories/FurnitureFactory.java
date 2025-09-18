@@ -1,6 +1,7 @@
 package com.example.interviews.designpatterns.creational.abstractfactory.factories;
 
-import designpatterns.abstractfactory.Furniture;
+
+import com.example.interviews.designpatterns.creational.abstractfactory.Furniture;
 
 public interface FurnitureFactory {
 
